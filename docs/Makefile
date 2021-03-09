@@ -5,11 +5,11 @@
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
-BUILDDIR      = ../build/sphinx/
+BUILDDIR      = ../build/sphinx
 AUTODOCDIR    = api
 AUTODOCBUILD  = sphinx-apidoc
-PROJECT       = llstep_test
-MODULEDIR     = ../src/llstep_test
+PROJECT       = safetydance_test
+MODULEDIR     = ../src/safetydance_test
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $?), 1)
