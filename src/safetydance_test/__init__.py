@@ -12,7 +12,8 @@ finally:
 
 
 from importlib import import_module
-from safetydance import script, step_data, step_decorator, Step, NestingContext
+from safetydance import get_context, script, step_data, step_decorator, Step, NestingContext
+from safetydance.extensions import enter_step, exit_step
 
 
 class TestStepPrefix:
@@ -30,7 +31,8 @@ class ScriptedTest(Step):
         __tracebackhide = True
         if self.f is None:
             self.rewrite()
-        context = NestingContext()
+        parent_context = get_context()
+        context = NestingContext(parent=parent_context) 
         calling_module = import_module(self.f.__module__)
         effective_TestStepPrefix = \
                 getattr(calling_module, 'TestStepPrefix', None) or TestStepPrefix
@@ -39,10 +41,9 @@ class ScriptedTest(Step):
         context[When] = test_step_prefix
         context[Then] = test_step_prefix
         context[And] = test_step_prefix
-        if "context" in kwargs:
-            context.parent = kwargs["context"]
-        kwargs["context"] = context
+        enter_step(context, self)
         self.f(*args, **kwargs)
+        exit_step(context, self)
 
 
 @step_decorator

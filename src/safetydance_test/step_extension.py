@@ -26,8 +26,9 @@ def steal_context_from_calling_frame():
 
 
 def call_step(f, *args, **kwargs):
+    __tracebackhide__ = True
     context = steal_context_from_calling_frame()
-    f(context, *args, **kwargs)
+    f(*args, **kwargs)
 
 
 class StepExtension(Extension):

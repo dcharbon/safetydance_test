@@ -7,8 +7,8 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-safetydance = {git = "https://gitlab.com/openteams/safetydance.git"}
-type-extensions = "^0.1.2"
+safetydance = {git = "https://gitlab.com/openteams/safetydance.git" }
+type-extensions = "^0"
 pytest = "^6.2.2"
 
 [tool.poetry.dev-dependencies]
