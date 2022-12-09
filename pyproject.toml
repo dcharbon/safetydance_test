@@ -1,14 +1,17 @@
 [tool.poetry]
 name = "safetydance_test"
-version = "0.1.0"
+version = "0.2.0"
 description = "A testing framework built upon the typesafe composition of steps."
-authors = ["Your Name <you@example.com>"]
+authors = ["David Charboneau <david@adadabase.com>"]
 license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/dcharbon/safetydance_test"
+repository = "https://github.com/dcharbon/safetydance_test.git"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-safetydance = {git = "https://gitlab.com/openteams/safetydance.git" }
-type-extensions = "^0"
+safetydance = "^0.3.1"
+type-extensions = "^0.1.2"
 pytest = "^6.2.2"
 
 [tool.poetry.dev-dependencies]
